@@ -51,3 +51,8 @@ function y() {
 }
 
 export EDITOR="nvim"
+
+# Automatically start tmux if not already inside a tmux session
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+  exec tmux
+fi
